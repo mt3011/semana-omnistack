@@ -1,32 +1,21 @@
 const express = require('express')
-const crypto = require('crypto')
-const connection = require('./database/connection')
+const OngController = require('./controllers/OngController')
+const incidentController = require('./controllers/incidentController')
+const profileController = require('./controllers/profileController')
+const sessionController = require('./controllers/sessionController')
 
 const routes = express.Router()
 
-//listagem de ONGS
-routes.get('/ongs', async (req, res) => {
-    const ongs = await connection('ongs').select('*')
-    return res.json(ongs)
-})
 
-//CADASTRO DE ONGS
-routes.post('/ongs', async (req, res) => {
-    var { name, email, whatsapp, city, uf} = req.body
-    
-    const id = crypto.randomBytes(4).toString('HEX')
+routes.post('/ongs', OngController.create)
+routes.get('/ongs', OngController.index)
 
-    //A função async vai esperar a função await terminar para continuar o código
-    await connection('ongs').insert({
-        id, 
-        name,
-        email, 
-        whatsapp, 
-        city, 
-        uf
-    })    
+routes.get('/incidents', incidentController.index)
+routes.post('/incidents', incidentController.create)
+routes.delete('/incidents/:id', incidentController.delete)
 
-    return res.json({ id })
-})
+routes.get('/profile', profileController.index)
+
+routes.post('/session', sessionController.create)
 
 module.exports = routes

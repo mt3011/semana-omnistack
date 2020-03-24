@@ -4,10 +4,10 @@ exports.up = function(knex) {
 
       table.string('id').primary()
       table.string('name').notNullable()
-      table.decimal('email').notNullable()
-      table.decimal('whatsapp').notNullable()
-      table.decimal('city').notNullable()
-      table.decimal('uf', 2).notNullable()
+      table.string('email').notNullable()
+      table.string('whatsapp').notNullable()
+      table.string('city').notNullable()
+      table.string('uf', 2).notNullable()
       
   })
 }
