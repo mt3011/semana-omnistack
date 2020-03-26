@@ -37,6 +37,17 @@ select{
     color: rgb(114, 116, 119);
 }
 
+form textarea {
+    width: 100%;
+    min-height: 140px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 16px 24px;
+    line-height: 24px;
+    resize: vertical;
+}
+
 
 .button {
     width: 100%;
@@ -55,9 +66,6 @@ select{
     transition: 0.2s;
 }
 
-.button:hover {
-    background-color: rgb(195, 26, 54);
-}
 
 .back-link {
     display: flex;
