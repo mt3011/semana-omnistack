@@ -29,7 +29,13 @@ routes.get('/incidents', celebrate({
 }), incidentController.index)
 
 //===============================
-routes.post('/incidents', incidentController.create)
+routes.post('/incidents', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        title: Joi.string().required(),
+        description: Joi.string().required(),
+        value: Joi.number().required()
+    })
+}), incidentController.create)
 
 //Varifica remoção de casos 
 routes.delete('/incidents/:id', celebrate({
@@ -40,13 +46,17 @@ routes.delete('/incidents/:id', celebrate({
 
 //Verifica visualização de casos
 routes.get('/profile', celebrate({
-    [Segments.HEADERS]: Joi.object().keys({
-        authorization: Joi.number().required()
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required()
     }).unknown()
 }), profileController.index)
 
 //========================
-routes.post('/session', sessionController.create)
+routes.post('/session', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        id: Joi.string().required().length(8)
+    })
+}) ,sessionController.create)
 
 
 

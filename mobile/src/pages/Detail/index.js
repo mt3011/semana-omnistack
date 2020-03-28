@@ -29,8 +29,9 @@ export default function Detail() {
     }
 
     function sendWhats() {
-        const number = '55' + incident.number
-        Linking.openURL(`whatsapp://send?phone=${number}&text=${message}`)
+        Linking.openURL(`whatsapp://send?phone=${incident.number}&text=${message}`)
+        console.log(incident.number);
+        
     }
     
     return(

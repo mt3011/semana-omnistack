@@ -2,7 +2,6 @@ const connection = require('../database/connection')
 
 module.exports = {
     async create(request, response){
-        console.log(request);
         var {id} = request.body
         
         const ong = await connection('ongs')
