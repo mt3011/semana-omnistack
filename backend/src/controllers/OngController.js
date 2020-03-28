@@ -1,6 +1,6 @@
 const express = require('express')
 const connection = require('../database/connection')
-const crypto = require('crypto')
+const generateUniqueId = require('../util/generateUniqueId')
 
 module.exports = {
     //CADASTRO DE ONGS
@@ -9,7 +9,7 @@ module.exports = {
         var { name, email, whatsapp, city, uf} = req.body
         
         
-        const id = crypto.randomBytes(4).toString('HEX')
+        const id = generateUniqueId()
 
         await connection('ongs').insert({
             id, 

@@ -53,7 +53,7 @@ export default function Register(){
                 <form onSubmit={handleRegister}>
                     <input type="text" placeholder="Nome da ONG" value={name} onChange={e => setName(e.target.value)}/>                
                     <input type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)}/>                
-                    <input type="Whatsapp" placeholder="Whatsapp" value={whatsapp} onChange={e => setWhatsapp(e.target.value)}/>                
+                    <input type="Whatsapp" placeholder="Whatsapp (Com DDD)" value={whatsapp} onChange={e => setWhatsapp(e.target.value)}/>                
                     <div className="input-group">
                         <input type="text" placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)}/>
                         <input type="text" placeholder="uf" style={{width: 80}} value={uf} onChange={e => setUf(e.target.value)}/>    
