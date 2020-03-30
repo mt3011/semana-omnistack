@@ -15,7 +15,6 @@
 
 ## (AQUI ENTRA UM GIF)
 
-
 #### &nbsp; A parte do website será reservado para a ONG se cadastrar e cadastrar seus casos Após o usuário acessar o site, ele terá a opção de fazer login com seu ID, caso ele não  possua, terá a opção de fazer um cadastro, após a conclusão ele receberá seu ID de acesso e será redirecionado para a página de login.
 
 ## (AQUI ENTRA OUTRO GIF)
@@ -30,12 +29,11 @@
 
 ## ***Processo de construção da aplicação***
 
+
 ## Backend
 
-#### O Backend como já dito antes foi desenvolvido em Node com alguns frameworks e bibliotecas de auxilio. Abaixo está algumas das *dependencias* utilizadas:  
+#### O Backend como já dito antes foi desenvolvido em Node com alguns frameworks e bibliotecas de auxilio. Abaixo está algumas das *dependencias* utilizadas: <br>
 
-
-### <br>
 ### ***Express***
 #### O sistema que relaciona as informações contidadas na url com operações na aplicação, como requisições ao banco de dados(método GET) ou adição de informações no banco(método POST) foi criado com o micro-framework *Express*.
 ~~~javascript
@@ -54,9 +52,7 @@ routes.get('/ongs', OngController.index)
 #### No exemplo acima, se um usuário colocar **/ongs** no final da url, ele estará executando método GET e tendo como retorno a lista de ONGs existente no banco de dados, isto caso ele tenha autorização para tal. <br> <br>
 
 ### ***Knex e o Banco de Dados SQLite***
-
 #### O banco de dados utilizado foi o *SQLite*. E o Knex foi utilizado com ele. Abaixo temos o script de conexão com o banco.
-
 ~~~javascript
 const knex = require('knex')
 
@@ -69,7 +65,6 @@ const connection = knex(config)
 module.exports = connection
 ~~~
 #### Migration que cria tabela no banco de dados:
-
 ~~~javascript
 exports.up = function(knex) {
   return knex.schema.createTable('ongs', function(table){
@@ -89,10 +84,7 @@ exports.down = function(knex) {
 };
 ~~~
 
-#### **Outras dependencias foram usadas somente em ambiente de desenvolvimento, como "nodemon" e "celebrate".** <br> <br> <br>
-
 ### ***Crypto***
-
 #### Uma biblioteca que foi usada para criar o ID
 ~~~~javascript
 const crypto = require('crypto')
@@ -104,6 +96,8 @@ const generateUniqueId = function generateUniqueId(){
 module.exports = generateUniqueId
 ~~~~
 
+#### **Outras dependencias foram usadas somente em ambiente de desenvolvimento, como "nodemon" e "celebrate".** <br> <br> <br>
+
 
 ## Frontend
 
@@ -112,7 +106,6 @@ module.exports = generateUniqueId
 ### ***Axios***
 
 #### O *axios* é uma ferramenta que foi utilizada para viabilizar a conexão com a API backend de maneira simples.
-
 ~~~~javascript
 import axios from 'axios'
 
@@ -123,7 +116,6 @@ const api = axios.create({
 
 export default api
 ~~~~
-
 #### A *baseURL* está como http://localhost:3333 pois esse é o endereço até nosso backend, caso você esteja rodando o Backend em outro endereço, terá que modifica-lo, caso você esteja rodando no Gitpod por exemplo. <br> <br> 
 
 ### ***React Router Dom***
@@ -153,14 +145,12 @@ export default function Routes() {
 }
 ~~~~
 
-
 ####  <br> <br> <br>
-
 
 
 ## Mobile
 
-#### Além de *React Native*, para construção do *app* foi usado junto com ele o *Expo*. Novamente, logo abaixo estão as dependencias utilizadas:
+#### Além de *React Native*, para construção do *app* foi usado junto com ele o *Expo*. Novamente, logo abaixo estão as dependencias utilizadas: <br>
 
 ### ***React Navigation***
 
@@ -190,7 +180,6 @@ export default function Routes() {
 
 
 ### ***Axios***
-
 #### Aqui também foi usado o *Axios*
 
 ~~~~javascript
@@ -204,11 +193,8 @@ export default api
 ~~~~
 #### <br> <br>
 
-
 ### ***expo-mail-composer***
-
 #### Esta ferramenta foi usada para redirecionar o usuário para o seu aplicativo de email padrão
-
 ~~~~javascript
 function sendEmail() {
     MailComposer.composeAsync({
@@ -221,7 +207,6 @@ function sendEmail() {
 #### <br> <br>
 
 ### ***INTL***
-
 #### Uma biblioteca que foi usada para formatação de dinheiro. O exemplo abaixo mostra a exibição do "value" do caso.
 ~~~~javascript
 <Text style={styles.incidentValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(incident.value)}</Text>
