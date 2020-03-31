@@ -13,7 +13,7 @@
 
 ## Website
 
-## (AQUI ENTRA UM GIF)
+## ![](/videos_e_imagens_do_README.md/web1.gif)
 
 #### &nbsp; A parte do website será reservado para a ONG se cadastrar e cadastrar seus casos Após o usuário acessar o site, ele terá a opção de fazer login com seu ID, caso ele não  possua, terá a opção de fazer um cadastro, após a conclusão ele receberá seu ID de acesso e será redirecionado para a página de login.
 

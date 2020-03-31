@@ -5,9 +5,8 @@ const generateUniqueId = require('../util/generateUniqueId')
 module.exports = {
     //CADASTRO DE ONGS
     async create(req, res){
-        console.log(req.body);
-        var { name, email, whatsapp, city, uf} = req.body
         
+        var { name, email, whatsapp, city, uf} = req.body        
         
         const id = generateUniqueId()
 

@@ -27,7 +27,8 @@ export default function Register(){
         }
 
         const response = await api.post('ongs', data)
-
+        console.log(response);
+        
         
         try {
             alert(`Seu ID de acesso: '${response.data.id}'. \nGuarde com cuidado, pois esse será o meio em que você consegurá acessar a plataforma.`)
@@ -51,9 +52,9 @@ export default function Register(){
                 </section>
 
                 <form onSubmit={handleRegister}>
-                    <input type="text" placeholder="Nome da ONG" value={name} onChange={e => setName(e.target.value)}/>                
-                    <input type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)}/>                
-                    <input type="Whatsapp" placeholder="Whatsapp (Com DDI e DDD)" value={whatsapp} onChange={e => setWhatsapp(e.target.value)}/>                
+                    <input  placeholder="Nome da ONG" value={name} onChange={e => setName(e.target.value)}/>                
+                    <input  placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)}/>                
+                    <input  placeholder="Whatsapp (Com DDI e DDD)" value={whatsapp} onChange={e => setWhatsapp(e.target.value)}/>                
                     <div className="input-group">
                         <input type="text" placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)}/>
                         <input type="text" placeholder="uf" style={{width: 80}} value={uf} onChange={e => setUf(e.target.value)}/>    
