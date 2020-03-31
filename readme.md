@@ -13,11 +13,11 @@
 
 ## Website
 
-## ![](/videos_e_imagens_do_README.md/web1.gif)
+## ![](videos_e_imagens_do_README.md/web1.gif)
 
 #### &nbsp; A parte do website será reservado para a ONG se cadastrar e cadastrar seus casos Após o usuário acessar o site, ele terá a opção de fazer login com seu ID, caso ele não  possua, terá a opção de fazer um cadastro, após a conclusão ele receberá seu ID de acesso e será redirecionado para a página de login.
 
-## (AQUI ENTRA OUTRO GIF)
+## ![](videos_e_imagens_do_README.md/web2.gif)
 
 #### Após ter feito o Login, aparece uma página listando todos os casos que a ONG registrou. Na página de cadastro de novos casos é pedido informações que serão apresentados ao heroi que salvará no caso.
 
@@ -38,12 +38,9 @@
 #### O sistema que relaciona as informações contidadas na url com operações na aplicação, como requisições ao banco de dados(método GET) ou adição de informações no banco(método POST) foi criado com o micro-framework *Express*.
 ~~~javascript
 const express = require('express')
-
 const OngController = require('./controllers/OngController')
 const incidentController = require('./controllers/incidentController')
-
 const routes = express.Router()
-
 //Cria ONGs
 routes.post('/ongs', OngController.create)
 //Lista as ONGs 
@@ -55,20 +52,15 @@ routes.get('/ongs', OngController.index)
 #### O banco de dados utilizado foi o *SQLite*. E o Knex foi utilizado com ele. Abaixo temos o script de conexão com o banco.
 ~~~javascript
 const knex = require('knex')
-
 const configuration = require('../../knexfile')
-
 const config = configuration.development
-
 const connection = knex(config)
-
 module.exports = connection
 ~~~
 #### Migration que cria tabela no banco de dados:
 ~~~javascript
 exports.up = function(knex) {
   return knex.schema.createTable('ongs', function(table){
-
       table.string('id').primary()
       table.string('name').notNullable()
       table.string('email').notNullable()
@@ -78,7 +70,6 @@ exports.up = function(knex) {
       
   })
 }
-
 exports.down = function(knex) {
     return knex.schema.dropTable('ongs')
 };
@@ -88,11 +79,9 @@ exports.down = function(knex) {
 #### Uma biblioteca que foi usada para criar o ID
 ~~~~javascript
 const crypto = require('crypto')
-
 const generateUniqueId = function generateUniqueId(){
     return crypto.randomBytes(4).toString('HEX')
 }
-
 module.exports = generateUniqueId
 ~~~~
 
@@ -108,12 +97,10 @@ module.exports = generateUniqueId
 #### O *axios* é uma ferramenta que foi utilizada para viabilizar a conexão com a API backend de maneira simples.
 ~~~~javascript
 import axios from 'axios'
-
 const api = axios.create({
     baseURL: 'http://localhost:3333',
     
 })
-
 export default api
 ~~~~
 #### A *baseURL* está como http://localhost:3333 pois esse é o endereço até nosso backend, caso você esteja rodando o Backend em outro endereço, terá que modifica-lo, caso você esteja rodando no Gitpod por exemplo. <br> <br> 
@@ -124,13 +111,10 @@ export default api
 ~~~~javascript
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
-
 import Logon from './pages/Logon'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
 import NewIncident from './pages/NewIcident'
-
 export default function Routes() {
     return (
         <BrowserRouter>
@@ -159,12 +143,9 @@ export default function Routes() {
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-
 const AppStack = createStackNavigator()
-
 import Incidents from './pages/Incidents'
 import Detail from './pages/Detail'
-
 export default function Routes() {
     return (
         <NavigationContainer>
@@ -184,11 +165,9 @@ export default function Routes() {
 
 ~~~~javascript
 import axios from 'axios'
-
 const api = axios.create({
     baseURL: 'http://192.168.25.227:3333',
 })
-
 export default api
 ~~~~
 #### <br> <br>
@@ -205,10 +184,8 @@ function sendEmail() {
 }
 ~~~~
 #### <br> <br>
-
 ### ***INTL***
 #### Uma biblioteca que foi usada para formatação de dinheiro. O exemplo abaixo mostra a exibição do "value" do caso.
 ~~~~javascript
 <Text style={styles.incidentValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(incident.value)}</Text>
-
 ~~~~
