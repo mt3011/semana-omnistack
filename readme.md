@@ -23,7 +23,7 @@
 
 ## Aplicativo mobile
 
-## (AQUI ENTRA MAIS UM GIF)
+## ![](videos_e_imagens_do_README.md/app.gif)
 
 #### Acessando o aplicativo, o herói terá acesso à uma lista dos casos que ele pode auxiliar, clicando em alguma delas ele terá a possibilidade de entrar em contato por Email ou por WhatsApp com a ONG, o email e o número acessados serão os que a ONG colocou na hora de seu cadastro. <br> <br> <br>
 
